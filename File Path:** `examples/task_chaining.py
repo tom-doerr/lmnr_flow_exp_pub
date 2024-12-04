@@ -2,7 +2,7 @@ from lmnr_flow import Flow, TaskOutput, NextTask, Context
 
 # Tasks can trigger other tasks
 def task1(context: Context) -> TaskOutput:
-    return TaskOutput(output="result1", [NextTask("task2")])
+    return TaskOutput("result1", next_tasks=[NextTask("task2")])
 
 def task2(context: Context) -> TaskOutput:
     # Access results from previous tasks

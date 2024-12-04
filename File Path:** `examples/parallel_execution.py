@@ -3,7 +3,7 @@ from lmnr_flow import Flow, TaskOutput, NextTask, Context
 
 def starter(context: Context) -> TaskOutput:
     # Launch multiple tasks in parallel by simply adding them to the next_tasks list
-    return TaskOutput(output="started", [NextTask("slow_task1"), NextTask("slow_task2")])
+    return TaskOutput("started", next_tasks=[NextTask("slow_task1"), NextTask("slow_task2")])
 
 def slow_task1(context: Context) -> TaskOutput:
     time.sleep(1)

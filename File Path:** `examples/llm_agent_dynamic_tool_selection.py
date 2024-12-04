@@ -15,7 +15,7 @@ def llm_agent(context: Context) -> TaskOutput:
     for tool in llm_response["tools"]:
         next_tasks.append(NextTask(tool))
     
-    return TaskOutput(output=llm_response["reasoning"], next_tasks)
+    return TaskOutput(llm_response["reasoning"], next_tasks=next_tasks)
 
 def search_db(context: Context) -> TaskOutput:
     # Simulate database search

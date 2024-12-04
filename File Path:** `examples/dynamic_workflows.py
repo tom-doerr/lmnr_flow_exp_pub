@@ -7,7 +7,7 @@ def conditional_task(context: Context) -> TaskOutput:
         return TaskOutput(output="done")
     
     context.set("count", count + 1)
-    return TaskOutput(output=f"iteration_{count}", [NextTask("conditional_task")])
+    return TaskOutput(f"iteration_{count}", next_tasks=[NextTask("conditional_task")])
 
 flow = Flow()
 flow.add_task("conditional_task", conditional_task)

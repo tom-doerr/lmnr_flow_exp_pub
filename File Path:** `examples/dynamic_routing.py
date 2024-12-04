@@ -7,7 +7,7 @@ def router(context: Context) -> TaskOutput:
         "analyze": [NextTask("analyze_task")],
         "report": [NextTask("report_task")]
     }
-    return TaskOutput(output=f"routing to {task_type}", routes.get(task_type, []))
+    return TaskOutput(f"routing to {task_type}", next_tasks=routes.get(task_type, []))
 
 def process_task(context: Context) -> TaskOutput:
     return TaskOutput(output="processed data")
